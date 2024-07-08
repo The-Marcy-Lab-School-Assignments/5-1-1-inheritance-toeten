@@ -31,8 +31,44 @@ class Square extends Rectangle {
 
 /* Be creative with this one! */
 class Person {
+  static #people = []
+  constructor(name, age, hobbies) {
+    this.name = name;
+    this.age = age;
+    this.hobbies = hobbies
 
+    Person.#people.push(this);
+  }
+  celebrateBirthday() {
+    this.age++
+    return `Happy birthday ${this.name}! What's it like to be ${this.age}?`
+  }
+  addHobby(newHobby) {
+    if(!this.hobbies.includes(newHobby)) {
+      this.hobbies.push(newHobby)
+      return `${newHobby} has been added to your list of hobbies`
+    }
+  }
+  getHobbies() {
+    return `${this.name}'s hobbies are: ${this.hobbies.join(', ')}.`;
+  }
+
+  static list() {
+    return Person.#people
+  }
+
+  static find(name) {
+    return Person.#people.find(person => person.name === name)
+  }
 }
+
+// const jommy = new Person('jommy', 35, ['skiing', 'eating', 'loving'])
+// jommy.addHobby('fighting')
+// console.log(jommy.getHobbies())
+// console.log(jommy)
+
+// console.log(Person.list())
+
 
 module.exports = {
   Quadrilateral,
