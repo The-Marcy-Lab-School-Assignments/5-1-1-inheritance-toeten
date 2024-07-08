@@ -10,12 +10,23 @@ class Quadrilateral {
   }
 }
 
-class Rectangle {
-
+class Rectangle extends Quadrilateral {
+  constructor(side1, side2) {
+    super(side1, side2, side1, side2)
+  }
+  getArea() {
+    return this.side1 * this.side2
+  }
 }
 
-class Square {
 
+class Square extends Rectangle {
+  constructor(side1) {
+    super(side1,side1)
+  }
+  getDiagonal(){
+    return Math.sqrt(2) * this.side1
+  }
 }
 
 /* Be creative with this one! */
