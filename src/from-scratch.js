@@ -24,6 +24,7 @@ class Square extends Rectangle {
   constructor(side1) {
     super(side1,side1)
   }
+  /** FEEDBACK: getDiagonal can be moved to Rectangle since we can get the diagonal of a rectangle and when invoked, we can access it from the parent class! */
   getDiagonal(){
     return Math.sqrt(2) * this.side1
   }
